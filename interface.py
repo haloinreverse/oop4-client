@@ -165,17 +165,17 @@ class TInterface(QMainWindow):
         # self.save_matrix()
         if self.size_le.text() != "":
             new_size = int(self.size_le.text())
-            old_size = self.__size
-            self.__size = new_size
-            self.tableWidget.setColumnCount(self.__size)
-            self.tableWidget.setRowCount(self.__size)
+            old_size = self.size
+            self.size = new_size
+            self.tableWidget.setColumnCount(self.size)
+            self.tableWidget.setRowCount(self.size)
 
             # new_matrix = [[0 for j in range(new_size)] for i in range(new_size)]
             for i in range(new_size):
                 for j in range(new_size):
                     if (i >= old_size) or (j >= old_size):
                         self.tableWidget.setItem(i, j, QTableWidgetItem())
-                        self.tableWidget.item(i, j).setText('0')
+                        self.tableWidget.item(i, j).setText('0/1')
 
             # for i in range(new_size):
             #     for j in range(new_size):
